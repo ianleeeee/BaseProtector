@@ -76,7 +76,10 @@ public class Intro implements ActionListener {
 				gamebackground.repaint();
 				frame.setSize(1533,540);
 				frame.repaint();
-				
+				game x = new game();
+				x.mouseClicked(null);
+				x.mousePressed(null);
+				x.mouseReleased(null);
 		
 			}
 		}

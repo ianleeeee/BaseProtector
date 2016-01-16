@@ -17,9 +17,10 @@ public class customBackground extends JPanel {
 			e.printStackTrace();
 		}
 	}
-	public void paint(Graphics g){
-		g.drawImage(background,0,0,this.getWidth(),this.getHeight(),null);
-		Component[]c = this.getComponents();
+
+	public void paint(Graphics g) {
+		g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), null);
+		Component[] c = this.getComponents();
 		for (int i = 0; i < c.length; i++) {
 			c[i].repaint();
 		}
