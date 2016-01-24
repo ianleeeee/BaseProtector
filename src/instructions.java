@@ -21,7 +21,7 @@ public class instructions implements ActionListener{
 
 		frame = new JFrame("How To Play");
 		panel = new customBackground("howtoplay.jpg");
-		directions = new JTextField("This game is a scenario in which your base is being attacked by invaders.\nYOU must defend the base to restore peace and order.\nYou start with a bow + arrow that does little damage but as you kill invaders,\nyou will gain money that you can use to upgrade your weapon.\nClick to shoot.\nGood Luck");
+		directions = new JTextField("This game is a scenario in which your base is being attacked by invaders.\nYOU must defend the base to restore peace and order.\nYou have a bow + arrow .\nClick to shoot.\nGood Luck");
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(500,500);

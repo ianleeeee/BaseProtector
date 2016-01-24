@@ -2,6 +2,8 @@ import java.awt.Color;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,14 +12,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Intro implements ActionListener {
+public class Intro implements ActionListener,MouseListener {
 	JFrame frame;
 	customBackground panel;
 	JButton instructions;
 	JButton play;
 	JButton back;
 	customBackground gamebackground;
-
+	Boolean inGame = false;
+	sounds s = new sounds();
 	public static void main(String[] args) {
 		Intro c = new Intro();
 	}
@@ -26,7 +29,7 @@ public class Intro implements ActionListener {
 
 		frame = new JFrame("Intro Screen");
 		panel = new customBackground("background.jpg");
-
+		frame.addMouseListener(this);
 		instructions = new JButton("How To Play");
 		play = new JButton("Play Game");
 		frame.setVisible(true);
@@ -69,6 +72,7 @@ public class Intro implements ActionListener {
 		}
 			
 		if (e.getSource() == play) {
+				inGame = true;
 				System.out.println("TEST");
 				frame.remove(panel);
 				gamebackground = new customBackground("gamesceneARCHER.png");
@@ -76,13 +80,53 @@ public class Intro implements ActionListener {
 				gamebackground.repaint();
 				frame.setSize(1533,540);
 				frame.repaint();
-				game x = new game();
-				x.mouseClicked(null);
-				x.mousePressed(null);
-				x.mouseReleased(null);
+				///game x = new game();
+				///x.mouseClicked(null);
+				///x.mousePressed(null);
+				///x.mouseReleased(null);
 		
 			}
 		}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if (inGame=true) {
+			s.playSound("arrow.wav");
+		}
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		if (inGame=true) {
+			
+		}
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		if (inGame=true) {
+			
+		}
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		if (inGame= true) {
+			
+		}
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		if (inGame=true) {
+			
+		}
+		
+	}
 	}
 
 
