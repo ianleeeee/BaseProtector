@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,8 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 
-public class Intro implements ActionListener,MouseListener {
+public class Intro implements ActionListener, MouseListener {
 	JFrame frame;
 	customBackground panel;
 	JButton instructions;
@@ -20,7 +22,9 @@ public class Intro implements ActionListener,MouseListener {
 	JButton back;
 	customBackground gamebackground;
 	Boolean inGame = false;
+	Timer time;
 	sounds s = new sounds();
+
 	public static void main(String[] args) {
 		Intro c = new Intro();
 	}
@@ -52,7 +56,7 @@ public class Intro implements ActionListener,MouseListener {
 		panel.repaint();
 		play.addActionListener(this);
 		instructions.addActionListener(this);
-
+		time = new Timer(1000/60,this);
 	}
 
 	@Override
@@ -70,63 +74,74 @@ public class Intro implements ActionListener,MouseListener {
 			/// System.out.println(panel.getComponent(i));
 			/// }}
 		}
-			
+
 		if (e.getSource() == play) {
-				inGame = true;
-				System.out.println("TEST");
-				frame.remove(panel);
-				gamebackground = new customBackground("gamesceneARCHER.png");
-				frame.add(gamebackground);
-				gamebackground.repaint();
-				frame.setSize(1533,540);
-				frame.repaint();
-				///game x = new game();
-				///x.mouseClicked(null);
-				///x.mousePressed(null);
-				///x.mouseReleased(null);
-		
-			}
+			inGame = true;
+			System.out.println("TEST");
+			frame.remove(panel);
+			gamebackground = new customBackground("gamesceneARCHER.png");
+			frame.add(gamebackground);
+			gamebackground.repaint();
+			frame.setSize(1533, 540);
+			frame.repaint();
+			time.start();
+			/// game x = new game();
+			/// x.mouseClicked(null);
+			/// x.mousePressed(null);
+			/// x.mouseReleased(null);
+
 		}
+		
+		if(e.getSource()==time){
+			gamebackground.updateArrows();
+			gamebackground.repaint();
+		}
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (inGame=true) {
-			s.playSound("arrow.wav");
+		if (inGame == true) {
+
 		}
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (inGame=true) {
-			
+		if (inGame == true) {
+			s.playSound("arrow.wav");
+			int x = e.getX();
+			int y = e.getY();
+			System.out.println(x);
+			System.out.println(y);
+			gamebackground.addArrow();
+					} 
+		else {
+
 		}
-		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		if (inGame=true) {
-			
+		if (inGame == true) {
+
 		}
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if (inGame= true) {
-			
+		if (inGame == true) {
+
 		}
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (inGame=true) {
-			
+		if (inGame = true) {
+
 		}
-		
-	}
 	}
 
-
+}
