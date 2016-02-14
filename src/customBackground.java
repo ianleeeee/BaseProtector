@@ -31,8 +31,8 @@ public class customBackground extends JPanel {
 		}
 		
 	}
-	void addArrow(){
-		arrowList.add(new arrow(198,60,100,100,10,10));
+	void addArrow(int x, int y){
+		arrowList.add(new arrow(198,60,100,100,10,10,x,y));
 		repaint();
 	}
 	void updateArrows(){
