@@ -1,3 +1,4 @@
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -6,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,10 +23,11 @@ public class Intro implements ActionListener, MouseListener {
 	JButton play;
 	JButton back;
 	customBackground gamebackground;
-	Boolean inGame = false;
 	Timer time;
 	int money = 0;
+	Boolean inGame = false;
 	JLabel moneyV;
+	AudioClip sound;
 	sounds s = new sounds();
 
 	public static void main(String[] args) {
@@ -35,13 +38,14 @@ public class Intro implements ActionListener, MouseListener {
 
 		frame = new JFrame("Intro Screen");
 		panel = new customBackground("background.jpg");
-		moneyV = new JLabel("Money:"+money);
+		moneyV = new JLabel("Money:" + money);
 		frame.addMouseListener(this);
 		instructions = new JButton("How To Play");
 		play = new JButton("Play Game");
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
+		sound = JApplet.newAudioClip(getClass().getResource("arrowR.wav"));
 		panel.setLayout(null);
 		instructions.setBounds(150, 125, 200, 50);
 		play.setBounds(150, 225, 200, 50);
@@ -87,7 +91,8 @@ public class Intro implements ActionListener, MouseListener {
 			
 			gamebackground.repaint();
 			frame.setSize(1533, 540);
-			frame.add(moneyV);
+			
+			gamebackground.add(moneyV);
 			frame.repaint();
 			time.start();
 			/// game x = new game();
@@ -114,7 +119,7 @@ public class Intro implements ActionListener, MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if (inGame == true) {
-			s.playSound("arrowR.wav");
+			s.playSound(sound);
 			
 			gamebackground.addArrow(e.getX(), e.getY());
 			money+=1;
@@ -144,7 +149,7 @@ public class Intro implements ActionListener, MouseListener {
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (inGame = true) {
-
+			System.out.println("out");
 		}
 	}
 

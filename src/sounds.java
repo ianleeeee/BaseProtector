@@ -15,5 +15,7 @@ public class sounds {
 		AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName));
 		sound.play();
 	}
-
+	void playSound(AudioClip sound) {
+		sound.play();
+	}
 }
