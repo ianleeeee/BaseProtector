@@ -44,7 +44,7 @@ public class Intro implements ActionListener, MouseListener {
 		play = new JButton("Play Game");
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		sound = JApplet.newAudioClip(getClass().getResource("arrowR.wav"));
 		panel.setLayout(null);
 		instructions.setBounds(150, 125, 200, 50);
@@ -63,7 +63,7 @@ public class Intro implements ActionListener, MouseListener {
 		panel.repaint();
 		play.addActionListener(this);
 		instructions.addActionListener(this);
-		time = new Timer(1000/120,this);
+		time = new Timer(1000 / 120, this);
 	}
 
 	@Override
@@ -88,10 +88,10 @@ public class Intro implements ActionListener, MouseListener {
 			frame.remove(panel);
 			gamebackground = new customBackground("gamesceneARCHER.png");
 			frame.add(gamebackground);
-			
+
 			gamebackground.repaint();
 			frame.setSize(1533, 540);
-			
+
 			gamebackground.add(moneyV);
 			frame.repaint();
 			time.start();
@@ -101,11 +101,15 @@ public class Intro implements ActionListener, MouseListener {
 			/// x.mouseReleased(null);
 
 		}
-		
-		if(e.getSource()==time){
+
+		if (e.getSource() == time) {
 			gamebackground.updateArrows();
 			gamebackground.repaint();
+
 		}
+		gamebackground.addEnemy();
+		gamebackground.update();
+		
 	}
 
 	@Override
@@ -120,12 +124,11 @@ public class Intro implements ActionListener, MouseListener {
 	public void mousePressed(MouseEvent e) {
 		if (inGame == true) {
 			s.playSound(sound);
-			
+
 			gamebackground.addArrow(e.getX(), e.getY());
-			money+=1;
-			moneyV.setText("Money:"+money);
-					} 
-		else {
+			money += 1;
+			moneyV.setText("Money:" + money);
+		} else {
 
 		}
 	}

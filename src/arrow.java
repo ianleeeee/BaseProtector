@@ -46,14 +46,14 @@ public class arrow {
 	}
 
 	void update() {
-		//x += speed * Math.cos(xDif / hypot);
-		//y += speed * Math.sin(yDif / hypot);
-		if (y>destinationY) {
-			y+=-3;
+		// x += speed * Math.cos(xDif / hypot);
+		// y += speed * Math.sin(yDif / hypot);
+		if (y > destinationY) {
+			y += -3;
 		}
-		if(y<destinationY){
-			y+=3;
+		if (y < destinationY) {
+			y += 3;
 		}
-		x+=speed;
+		x += speed;
 	}
 }
