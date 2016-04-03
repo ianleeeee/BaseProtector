@@ -1,19 +1,14 @@
 import java.applet.AudioClip;
 import java.awt.Color;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
 
 import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.Timer;
 
 public class Intro implements ActionListener, MouseListener {
@@ -24,9 +19,9 @@ public class Intro implements ActionListener, MouseListener {
 	JButton back;
 	customBackground gamebackground;
 	Timer time;
-	int money = 0;
+	/// int money = 0;
 	Boolean inGame = false;
-	JLabel moneyV;
+	/// JLabel moneyV;
 	AudioClip sound;
 	sounds s = new sounds();
 
@@ -38,7 +33,7 @@ public class Intro implements ActionListener, MouseListener {
 
 		frame = new JFrame("Intro Screen");
 		panel = new customBackground("background.jpg");
-		moneyV = new JLabel("Money:" + money);
+		/// moneyV = new JLabel("Money:" + money);
 		frame.addMouseListener(this);
 		instructions = new JButton("How To Play");
 		play = new JButton("Play Game");
@@ -92,7 +87,7 @@ public class Intro implements ActionListener, MouseListener {
 			gamebackground.repaint();
 			frame.setSize(1533, 540);
 
-			gamebackground.add(moneyV);
+			/// gamebackground.add(moneyV);
 			frame.repaint();
 			time.start();
 			/// game x = new game();
@@ -109,7 +104,7 @@ public class Intro implements ActionListener, MouseListener {
 		}
 		gamebackground.addEnemy();
 		gamebackground.update();
-		
+
 	}
 
 	@Override
@@ -126,8 +121,8 @@ public class Intro implements ActionListener, MouseListener {
 			s.playSound(sound);
 
 			gamebackground.addArrow(e.getX(), e.getY());
-			money += 1;
-			moneyV.setText("Money:" + money);
+			/// money += 1;
+			/// moneyV.setText("Money:" + money);
 		} else {
 
 		}

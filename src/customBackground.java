@@ -2,7 +2,6 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -14,6 +13,7 @@ public class customBackground extends JPanel {
 	ArrayList<enemy> enemyList;
 	BufferedImage enemyImage;
 	long enemyTimer = -1;
+
 	customBackground(String x) {
 		arrowList = new ArrayList<arrow>();
 		enemyList = new ArrayList<enemy>();
@@ -21,12 +21,12 @@ public class customBackground extends JPanel {
 			background = ImageIO.read(this.getClass().getResourceAsStream(x));
 			arrowImage = ImageIO.read(this.getClass().getResourceAsStream("arrowImage.png"));
 			enemyImage = ImageIO.read(this.getClass().getResourceAsStream("axeEnemy.png"));
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public void paintComponent(Graphics g) {
@@ -35,9 +35,9 @@ public class customBackground extends JPanel {
 		for (arrow a : arrowList) {
 			a.draw(g);
 		}
-		for (enemy e: enemyList){
+		for (enemy e : enemyList) {
 			e.paint(g);
-			
+
 		}
 	}
 
@@ -55,17 +55,29 @@ public class customBackground extends JPanel {
 	}
 
 	void update() {
-		for (enemy e: enemyList) {
+		for (enemy e : enemyList) {
 			e.update();
+			checkCollision();
 		}
 	}
-	void addEnemy(){
+
+	void addEnemy() {
 		if (enemyTimer == -1) {
 			enemyTimer = System.currentTimeMillis();
 		}
-		if (System.currentTimeMillis()-enemyTimer >= 2000) {
+		if (System.currentTimeMillis() - enemyTimer >= 2000) {
 			enemyList.add(new enemy(1329, 300, 200, 200, 1, enemyImage));
 			enemyTimer = -1;
+		}
+	}
+
+	void checkCollision() {
+		for (enemy e : enemyList) {
+			for (arrow a : arrowList) {
+				if (e.getBox().intersects(a.getBox())) {
+					System.out.println("yolo");
+				}
+			}
 		}
 	}
 }
