@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -24,13 +25,13 @@ public class Intro implements ActionListener, MouseListener {
 	/// JLabel moneyV;
 	AudioClip sound;
 	sounds s = new sounds();
-
+	
 	public static void main(String[] args) {
 		Intro c = new Intro();
 	}
 
 	Intro() {
-
+		
 		frame = new JFrame("Intro Screen");
 		panel = new customBackground("background.jpg");
 		/// moneyV = new JLabel("Money:" + money);

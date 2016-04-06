@@ -45,8 +45,7 @@ public class arrow {
 
 	void draw(Graphics g) {
 		g.drawImage(arrowImage, x, y, width, height, null);
-		g.setColor(Color.red);
-		g.drawRect(collisionBoxArrow.x, collisionBoxArrow.y, collisionBoxArrow.width, collisionBoxArrow.height);
+		//g.drawRect(collisionBoxArrow.x, collisionBoxArrow.y, collisionBoxArrow.width, collisionBoxArrow.height);
 	}
 
 	void update() {

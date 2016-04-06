@@ -4,9 +4,9 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 public class enemy {
+	int height;
 	int x;
 	int y;
-	int height;
 	int width;
 	float speed;
 	Rectangle collisionBox;
@@ -28,8 +28,7 @@ public class enemy {
 
 	public void paint(Graphics g) {
 		g.drawImage(enemy, x, y, width, height, null);
-		g.setColor(Color.red);
-		g.drawRect(collisionBox.x, collisionBox.y, collisionBox.width, collisionBox.height);
+		//g.drawRect(collisionBox.x, collisionBox.y, collisionBox.width, collisionBox.height);
 	}
 
 	public void update() {
