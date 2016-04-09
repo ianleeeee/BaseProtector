@@ -1,25 +1,28 @@
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.imageio.ImageIO;
-import java.awt.Graphics;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class customBackground extends JPanel {
-	counters ian = new counters();
+public class customBackground extends JPanel implements ActionListener, MouseListener {
 
 	BufferedImage background;
 	BufferedImage arrowImage;
 	CopyOnWriteArrayList<arrow> arrowList;
 	CopyOnWriteArrayList<enemy> enemyList;
 	BufferedImage enemyImage;
-
+	JLabel kills;
+	counters scoreCounters = new counters();
 	long enemyTimer = -1;
-	int levelTracker = 0;
+
 	int ammo = 30;
 
 	customBackground(String x) {
@@ -41,6 +44,8 @@ public class customBackground extends JPanel {
 	public void paintComponent(Graphics g) {
 		g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), null);
 
+		scoreCounters.draw(g);
+
 		for (arrow a : arrowList) {
 			a.draw(g);
 		}
@@ -49,11 +54,11 @@ public class customBackground extends JPanel {
 
 		}
 
-		ian.draw(g);
 	}
 
 	void addArrow(int x, int y) {
 		arrowList.add(new arrow(198, 60, 100, 100, 10, 10, x, y, arrowImage));
+		scoreCounters.ammo--;
 		repaint();
 	}
 
@@ -71,6 +76,7 @@ public class customBackground extends JPanel {
 			e.update();
 			checkCollision();
 		}
+		repaint();
 	}
 
 	void addEnemy() {
@@ -90,26 +96,63 @@ public class customBackground extends JPanel {
 					System.out.println("collision");
 					enemyList.remove(e);
 					arrowList.remove(a);
-					levelTracker += 1;
-					ian.ammo--;
-					if (ammo == 0) {
+
+					scoreCounters.levelTracker++;
+					if (scoreCounters.ammo == 0) {
 						JOptionPane.showMessageDialog(null, "GAME OVER");
 					} else {
 
 					}
-					if (levelTracker == 20 && ammo >= 1) {
+					if (scoreCounters.levelTracker == 20 && scoreCounters.ammo >= 1) {
 						JOptionPane.showMessageDialog(null, "Level 2!");
-						ammo = 60;
+						scoreCounters.ammo = 60;
 					} else {
 
 					}
-					if (levelTracker == 60 && ammo >= 1) {
+					if (scoreCounters.levelTracker == 60 && scoreCounters.ammo >= 1) {
 						JOptionPane.showMessageDialog(null, "Level 3!");
 					} else {
 
 					}
+
 				}
 			}
 		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		System.out.println("hi");
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
 	}
 }

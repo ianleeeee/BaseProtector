@@ -8,7 +8,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -20,20 +19,22 @@ public class Intro implements ActionListener, MouseListener {
 	JButton back;
 	customBackground gamebackground;
 	Timer time;
+
 	/// int money = 0;
 	Boolean inGame = false;
 	/// JLabel moneyV;
 	AudioClip sound;
 	sounds s = new sounds();
-	
+
 	public static void main(String[] args) {
 		Intro c = new Intro();
 	}
 
 	Intro() {
-		
+
 		frame = new JFrame("Intro Screen");
 		panel = new customBackground("background.jpg");
+
 		/// moneyV = new JLabel("Money:" + money);
 		frame.addMouseListener(this);
 		instructions = new JButton("How To Play");
@@ -118,12 +119,12 @@ public class Intro implements ActionListener, MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		panel.mousePressed(e);
 		if (inGame == true) {
 			s.playSound(sound);
-
+			System.out.println("HOLA");
 			gamebackground.addArrow(e.getX(), e.getY());
-			/// money += 1;
-			/// moneyV.setText("Money:" + money);
+
 		} else {
 
 		}
