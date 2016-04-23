@@ -20,6 +20,7 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 	CopyOnWriteArrayList<enemy> enemyList;
 	BufferedImage enemyImage;
 	JLabel kills;
+	Boolean gameEnd = false;
 	counters scoreCounters = new counters();
 	long enemyTimer = -1;
 
@@ -98,8 +99,11 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 					arrowList.remove(a);
 
 					scoreCounters.levelTracker++;
-					if (scoreCounters.ammo == 0) {
+					if (scoreCounters.ammo <= 0) {
 						JOptionPane.showMessageDialog(null, "GAME OVER");
+						gameEnd =true;
+						System.exit(1);
+						
 					} else {
 
 					}
@@ -111,8 +115,17 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 					}
 					if (scoreCounters.levelTracker == 60 && scoreCounters.ammo >= 1) {
 						JOptionPane.showMessageDialog(null, "Level 3!");
+						scoreCounters.ammo=10;
+						
 					} else {
 
+					}
+					if(scoreCounters.levelTracker ==70 && scoreCounters.ammo>=0){
+						JOptionPane.showMessageDialog(null, "Good job you win");
+						
+					}
+					else{
+						
 					}
 
 				}
