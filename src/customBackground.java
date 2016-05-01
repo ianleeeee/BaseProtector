@@ -22,6 +22,7 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 	JLabel kills;
 	Boolean gameEnd = false;
 	counters scoreCounters = new counters();
+	towerSTUFF towerhealth = new towerSTUFF();
 	long enemyTimer = -1;
 
 	int ammo = 30;
@@ -46,6 +47,7 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 		g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), null);
 
 		scoreCounters.draw(g);
+		towerhealth.draw(g);
 
 		for (arrow a : arrowList) {
 			a.draw(g);
@@ -84,7 +86,7 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 		if (enemyTimer == -1) {
 			enemyTimer = System.currentTimeMillis();
 		}
-		if (System.currentTimeMillis() - enemyTimer >= 1500) {
+		if (System.currentTimeMillis() - enemyTimer >= 1000) {
 			enemyList.add(new enemy(1329, 300, 200, 200, 1, enemyImage));
 			enemyTimer = -1;
 		}
@@ -92,6 +94,12 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 
 	void checkCollision() {
 		for (enemy e : enemyList) {
+			if (e.getX() == 66) {
+				JOptionPane.showMessageDialog(null, "TOWER HIT, -1 HEALTH");
+				towerhealth.towerHP--;
+				enemyList.remove(e);
+			}
+
 			for (arrow a : arrowList) {
 				if (e.getBox().intersects(a.getBox())) {
 					System.out.println("collision");
@@ -101,31 +109,30 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 					scoreCounters.levelTracker++;
 					if (scoreCounters.ammo <= 0) {
 						JOptionPane.showMessageDialog(null, "GAME OVER");
-						gameEnd =true;
+						gameEnd = true;
 						System.exit(1);
-						
+
 					} else {
 
 					}
 					if (scoreCounters.levelTracker == 20 && scoreCounters.ammo >= 1) {
 						JOptionPane.showMessageDialog(null, "Level 2!");
-						scoreCounters.ammo = 60;
+						scoreCounters.ammo = 45;
 					} else {
 
 					}
 					if (scoreCounters.levelTracker == 60 && scoreCounters.ammo >= 1) {
 						JOptionPane.showMessageDialog(null, "Level 3!");
-						scoreCounters.ammo=10;
-						
+						scoreCounters.ammo = 11;
+
 					} else {
 
 					}
-					if(scoreCounters.levelTracker ==70 && scoreCounters.ammo>=0){
+					if (scoreCounters.levelTracker == 70 && scoreCounters.ammo >= 0) {
 						JOptionPane.showMessageDialog(null, "Good job you win");
-						
-					}
-					else{
-						
+
+					} else {
+
 					}
 
 				}

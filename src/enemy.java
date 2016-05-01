@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -28,7 +27,8 @@ public class enemy {
 
 	public void paint(Graphics g) {
 		g.drawImage(enemy, x, y, width, height, null);
-		//g.drawRect(collisionBox.x, collisionBox.y, collisionBox.width, collisionBox.height);
+		// g.drawRect(collisionBox.x, collisionBox.y, collisionBox.width, collisionBox.height);
+
 	}
 
 	public void update() {
@@ -43,4 +43,13 @@ public class enemy {
 	Rectangle getBox() {
 		return collisionBox;
 	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
 }
