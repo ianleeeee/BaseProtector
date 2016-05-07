@@ -98,6 +98,10 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 				JOptionPane.showMessageDialog(null, "TOWER HIT, -1 HEALTH");
 				towerhealth.towerHP--;
 				enemyList.remove(e);
+				if (towerhealth.towerHP==0) {
+					JOptionPane.showMessageDialog(null,"GAME OVER, TOWER DESTROYED");
+					System.exit(1);
+				}
 			}
 
 			for (arrow a : arrowList) {
@@ -108,7 +112,7 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 
 					scoreCounters.levelTracker++;
 					if (scoreCounters.ammo <= 0) {
-						JOptionPane.showMessageDialog(null, "GAME OVER");
+						JOptionPane.showMessageDialog(null, "GAME OVER, NO MORE AMMO");
 						gameEnd = true;
 						System.exit(1);
 
@@ -130,6 +134,7 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 					}
 					if (scoreCounters.levelTracker == 70 && scoreCounters.ammo >= 0) {
 						JOptionPane.showMessageDialog(null, "Good job you win");
+						
 
 					} else {
 

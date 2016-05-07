@@ -151,6 +151,7 @@ public class Intro implements ActionListener, MouseListener {
 	public void mouseExited(MouseEvent e) {
 		if (inGame = true) {
 			System.out.println("out");
+			
 		}
 	}
 
