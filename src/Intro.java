@@ -69,7 +69,10 @@ public class Intro implements ActionListener, MouseListener {
 			/// panel.remove(play);
 			/// panel.remove(instructions);
 			JOptionPane.showMessageDialog(null,
-					"This game is a scenario in which your base is being attacked by invaders.\nYOU must defend the base to restore peace and order.\nYou start with a bow + arrow that does little damage but as you kill invaders,\nyou will gain money that you can use to upgrade your weapon.\nClick to shoot.\nGood Luck");
+					"This game is a scenario in which your base is being attacked by invaders."
+							+ "\nYOU must defend the base to restore peace and order.\nYou have a bow + arrow ."
+							+ "\nClick to shoot.\nGood Luck\n\n LEVEL 1: 25 ammo to kill 20 enemies\n"
+							+ "\n LEVEL 2: 45 ammo to kill 40 enemies\n\n LEVEL 3: 11 ammo to kill 10 enemies");
 					/// directions.setBounds(150,175,500,500);
 					/// panel.validate();
 					/// panel.repaint();
