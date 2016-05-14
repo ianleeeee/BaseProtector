@@ -69,13 +69,12 @@ public class Intro implements ActionListener, MouseListener {
 			/// panel.remove(play);
 			/// panel.remove(instructions);
 			JOptionPane.showMessageDialog(null,
-					"This game is a scenario in which your base is being attacked by invaders."
-							+ "\nYOU must defend the base to restore peace and order.\nYou have a bow + arrow ."
-							+ "\nClick to shoot.\nGood Luck\n\n LEVEL 1: 25 ammo to kill 20 enemies\n"
+					"This game is a scenario in which your base is being attacked by invaders." + "\nYOU must defend the base to restore peace and order.\nYou have a bow + arrow ."
+							+ "\nClick to shoot. Enemies have 2 lives.\nGood Luck\n\n LEVEL 1: 25 ammo to kill 20 enemies\n"
 							+ "\n LEVEL 2: 45 ammo to kill 40 enemies\n\n LEVEL 3: 11 ammo to kill 10 enemies");
-					/// directions.setBounds(150,175,500,500);
-					/// panel.validate();
-					/// panel.repaint();
+							/// directions.setBounds(150,175,500,500);
+							/// panel.validate();
+							/// panel.repaint();
 
 			/// for (int i = 0; i < panel.getComponentCount(); i++) {
 			/// System.out.println(panel.getComponent(i));
@@ -154,7 +153,7 @@ public class Intro implements ActionListener, MouseListener {
 	public void mouseExited(MouseEvent e) {
 		if (inGame = true) {
 			System.out.println("out");
-			
+
 		}
 	}
 
