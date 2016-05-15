@@ -26,7 +26,7 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 	towerSTUFF towerhealth = new towerSTUFF();
 	long enemyTimer = -1;
 	Random random = new Random();
-	int ammo = 30;
+	int ammo = 25;
 	int enemyHealth = 2;
 
 	customBackground(String x) {
@@ -89,7 +89,7 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 			enemyTimer = System.currentTimeMillis();
 		}
 		if (System.currentTimeMillis() - enemyTimer >= 1000) {
-			int speedRandom = random.nextInt(7);
+			int speedRandom = random.nextInt(5);
 			if (speedRandom == 0) {
 				speedRandom += 1;
 			}
@@ -129,20 +129,20 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 					} else {
 
 					}
-					if (scoreCounters.levelTracker == 20 && scoreCounters.ammo >= 1) {
+					if (scoreCounters.levelTracker == 10 && scoreCounters.ammo >= 1) {
 						JOptionPane.showMessageDialog(null, "Level 2!");
 						scoreCounters.ammo = 45;
 					} else {
 
 					}
-					if (scoreCounters.levelTracker == 60 && scoreCounters.ammo >= 1) {
+					if (scoreCounters.levelTracker == 45 && scoreCounters.ammo >= 1) {
 						JOptionPane.showMessageDialog(null, "Level 3!");
-						scoreCounters.ammo = 11;
+						scoreCounters.ammo = 25;
 
 					} else {
 
 					}
-					if (scoreCounters.levelTracker == 70 && scoreCounters.ammo >= 0) {
+					if (scoreCounters.levelTracker == 65 && scoreCounters.ammo >= 0) {
 						JOptionPane.showMessageDialog(null, "Good job you win");
 
 					} else {

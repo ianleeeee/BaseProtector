@@ -24,8 +24,7 @@ public class arrow {
 	int CBAy = y + 25;
 
 	arrow(int x, int y, int width, int height, int speed, int damage, int destinationX, int destinationY, BufferedImage a) {
-		this.x = x;
-		this.y = y;
+	
 		this.width = width;
 		this.height = height;
 		this.speed = speed;
