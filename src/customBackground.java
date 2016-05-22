@@ -119,8 +119,9 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 					if (enemyHealth == 0) {
 						enemyList.remove(e);
 						enemyHealth = 2;
+						scoreCounters.levelTracker++;
 					}
-					scoreCounters.levelTracker++;
+					
 					if (scoreCounters.ammo <= 0) {
 						JOptionPane.showMessageDialog(null, "GAME OVER, NO MORE AMMO");
 						gameEnd = true;
@@ -135,15 +136,16 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 					} else {
 
 					}
-					if (scoreCounters.levelTracker == 45 && scoreCounters.ammo >= 1) {
+					if (scoreCounters.levelTracker == 30 && scoreCounters.ammo >= 1) {
 						JOptionPane.showMessageDialog(null, "Level 3!");
 						scoreCounters.ammo = 25;
 
 					} else {
 
 					}
-					if (scoreCounters.levelTracker == 65 && scoreCounters.ammo >= 0) {
+					if (scoreCounters.levelTracker ==40 && scoreCounters.ammo >= 0) {
 						JOptionPane.showMessageDialog(null, "Good job you win");
+						System.exit(1);
 
 					} else {
 

@@ -23,12 +23,14 @@ public class arrow {
 	int CBAx = x + 25;
 	int CBAy = y + 25;
 
-	arrow(int x, int y, int width, int height, int speed, int damage, int destinationX, int destinationY, BufferedImage a) {
-	
+	arrow(int x, int y, int width, int height, int speed, int damage, int destinationX, int destinationY,
+			BufferedImage a) {
+		this.x = x;
+		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.speed = speed;
-		this.damage = damage;
+		this.damage = damage; 
 		this.destinationY = destinationY;
 		this.destinationX = destinationX;
 		xDif = destinationX - x;
@@ -44,7 +46,8 @@ public class arrow {
 
 	void draw(Graphics g) {
 		g.drawImage(arrowImage, x, y, width, height, null);
-		//g.drawRect(collisionBoxArrow.x, collisionBoxArrow.y, collisionBoxArrow.width, collisionBoxArrow.height);
+		// g.drawRect(collisionBoxArrow.x, collisionBoxArrow.y,
+		// collisionBoxArrow.width, collisionBoxArrow.height);
 	}
 
 	void update() {
