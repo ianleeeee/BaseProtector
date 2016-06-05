@@ -114,7 +114,7 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 			for (arrow a : arrowList) {
 				if (e.getBox().intersects(a.getBox())) {
 					System.out.println("collision");
-					enemyHealth -= 1;
+					enemyHealth-=1;
 					arrowList.remove(a);
 					if (enemyHealth == 0) {
 						enemyList.remove(e);
@@ -131,6 +131,7 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 
 					}
 					if (scoreCounters.levelTracker == 10 && scoreCounters.ammo >= 1) {
+						scoreCounters.levelTracker +=1;
 						JOptionPane.showMessageDialog(null, "Level 2!");
 						scoreCounters.ammo = 45;
 					} else {
@@ -141,7 +142,7 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 						scoreCounters.ammo = 25;
 
 					} else {
-
+						
 					}
 					if (scoreCounters.levelTracker ==40 && scoreCounters.ammo >= 0) {
 						JOptionPane.showMessageDialog(null, "Good job you win");
