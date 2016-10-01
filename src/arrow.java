@@ -49,11 +49,11 @@ public class arrow {
 	void draw(Graphics g) {
 		AffineTransform rotator = new AffineTransform();
 		Graphics2D g2 = (Graphics2D)  g;
-		rotator.rotate(-angle+(Math.PI/2),x,y);
-		g2.setTransform(rotator);
+		g2.rotate(-angle+(Math.PI/2),x,y);
+		//setTransform(rotator);
 		
 		g2.drawImage(arrowImage, x, y, width, height, null);
-		rotator.rotate(angle +(Math.PI/2), x,y);
+		//rotator.rotate(angle +(Math.PI/2), x,y);
 		g2.setTransform(rotator);
 		// g.drawRect(collisionBoxArrow.x, collisionBoxArrow.y,
 		// collisionBoxArrow.width, collisionBoxArrow.height);
