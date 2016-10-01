@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 public class arrow {
@@ -36,8 +38,8 @@ public class arrow {
 		xDif = destinationX - x;
 		yDif = destinationY - y;
 		this.arrowImage = a;
-		angle = (float) Math.atan(xDif / yDif);
-		hypot = (float) Math.sqrt((xDif * xDif) + (yDif * yDif));
+		angle = (float) Math.atan((double)xDif/yDif);
+		hypot = (float) Math.sqrt((xDif) + (yDif));
 
 		System.out.println(xDif);
 		System.out.println(yDif);
@@ -45,7 +47,14 @@ public class arrow {
 	}
 
 	void draw(Graphics g) {
-		g.drawImage(arrowImage, x, y, width, height, null);
+		AffineTransform rotator = new AffineTransform();
+		Graphics2D g2 = (Graphics2D)  g;
+		rotator.rotate(-angle+(Math.PI/2),x,y);
+		g2.setTransform(rotator);
+		
+		g2.drawImage(arrowImage, x, y, width, height, null);
+		rotator.rotate(angle +(Math.PI/2), x,y);
+		g2.setTransform(rotator);
 		// g.drawRect(collisionBoxArrow.x, collisionBoxArrow.y,
 		// collisionBoxArrow.width, collisionBoxArrow.height);
 	}
