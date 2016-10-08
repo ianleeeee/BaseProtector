@@ -134,23 +134,21 @@ public class customBackground extends JPanel implements ActionListener, MouseLis
 						scoreCounters.levelTracker +=1;
 						JOptionPane.showMessageDialog(null, "Level 2!");
 						scoreCounters.ammo = 45;
-					} else {
-
-					}
+					} 
 					if (scoreCounters.levelTracker == 30 && scoreCounters.ammo >= 1) {
-						JOptionPane.showMessageDialog(null, "Level 3!");
+						scoreCounters.levelTracker +=1;
 						scoreCounters.ammo = 25;
-
-					} else {
 						
-					}
+						
+						JOptionPane.showMessageDialog(null, "Level 3!");
+						
+
+					} 
 					if (scoreCounters.levelTracker ==40 && scoreCounters.ammo >= 0) {
 						JOptionPane.showMessageDialog(null, "Good job you win");
 						System.exit(1);
 
-					} else {
-
-					}
+					} 
 
 				}
 			}
